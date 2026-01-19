@@ -11,7 +11,7 @@ def get_movies(
         queryset = queryset.filter(genres__in=genres_ids)
     if actors_ids:
         queryset = queryset.filter(actors__in=actors_ids)
-    return queryset
+    return queryset.distinct()
 
 
 def get_movie_by_id(movie_id: int) -> Movie:
